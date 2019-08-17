@@ -1,5 +1,5 @@
 # responsive-web-layout-scss-mixin
-Create dynamic calculations of CSS property to provide a better responsive layout on not standard viewports.
+Create dynamic CSS property calculations to improve the responsive layout of non-standard viewports.
 
 There are different techniques to handle responsive typography and property (e.g. padding, margin) out there.
 Most of theme are based on using exclusevely Media Queries, which could be really overwelming to manage.
