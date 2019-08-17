@@ -1,0 +1,36 @@
+/* Responsive Web Layouts
+* Create dynamic calculations of CSS property to provide a better responsive layout on not standard viewports.
+*
+* SCSS mixin based on the original responsive technique by Mikhail Sharanda.
+* Codepen: https://codepen.io/sharanda/pen/eoLBWv
+* Article: https://www.creativebloq.com/how-to/build-adaptive-layouts-without-media-queries
+*/
+
+// define your breakpoints map or using it from your CSS framework (e.g. Bootstrap)
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+// get display max and min values from the breakpoint mixin
+$display-wide: strip-unit(map-get($breakpoints, "xl"));
+$display-narrow: strip-unit(map-get($breakpoints, "sm"));
+
+@mixin fluid-property($property, $minValue, $maxValue) {
+  // calculate 'x' and 'y' values with math expressions
+  $x: ($maxValue - $minValue)/ ($display-wide - $display-narrow);
+  $y: $maxValue - $display-wide * $x;
+  
+  // assign the calculation to the propery
+  #{$property}: calc(#{100 * $x}vw + #{$y}px);
+
+  // set max and min values to prevent element too small or too big
+  @media (min-width: #{$display-wide}px) {
+    #{$property}: #{$maxValue}px;
+  }
+  @media (max-width: #{$display-narrow}px) {
+    #{$property}: #{$minValue}px;
+  }
+}
