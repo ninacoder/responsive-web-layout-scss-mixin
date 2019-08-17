@@ -1,10 +1,10 @@
 # responsive-web-layout-scss-mixin
 Create dynamic CSS property calculations to improve the responsive layout of non-standard viewports.
 
-There are different techniques to handle responsive typography and property (e.g. padding, margin) out there.
+There are different techniques of handling responsive typography and property (e.g. padding, margin) out there.
 Most of theme are based on using exclusively Media Queries, which could be really overwhelming to manage.
 
-This SCSS mixin is essentially based on Mikhail Sharanda approach. It calculates dynamically the property value based on the device's size and it defines a min and max values to prevent element getting too big or too small.
+This SCSS mixin is essentially based on Mikhail Sharanda approach. It calculates dynamically the property value based on the device's size and it defines a min and max values to prevent an element from getting too big or too small.
 
 This SASS/SCSS mixin requires only three key values to work:
 - the property
