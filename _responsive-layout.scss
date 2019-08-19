@@ -6,6 +6,17 @@
 * Article: https://www.creativebloq.com/how-to/build-adaptive-layouts-without-media-queries
 */
 
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
 // define your breakpoints map of get it from your CSS framework (e.g. Bootstrap)
 $breakpoints: (
   sm: 576px,
